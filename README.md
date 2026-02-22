@@ -27,6 +27,22 @@ An end-to-end AI system built with **TensorFlow** and **DistilBERT** that combin
 
 ---
 
+## 🌟 Brownie Points & Extra Features
+
+We successfully completed all the requested "Brownie Points" from the problem statement:
+- [x] **Unified Pipeline**: Implemented `pipeline/unified_pipeline.py` which seamlessly merges real-time gameplay numeric data with text-based chat arrays without blocking inference.
+- [x] **Simple Dashboard Deployment**: Developed an interactive, responsive Streamlit dashboard with a premium UI (not just "simple").
+- [x] **Deep Learning**: Built entirely on **TensorFlow/Keras**. We utilized a Deep Neural Network (DNN) with Batch Normalization and Dropout for the tabular data, and fine-tuned a deep Transformer architecture for NLP.
+- [x] **Discussion of Real-World Challenges**: Included `ethics.md` detailing the serious ramifications of false positives in toxicity detection, dataset representation bias (language/slang), and adversarial text manipulation.
+
+### 🚀 Extra Features (Beyond Requirements)
+- **Transformer NLP Architecture**: Rather than sticking to standard LSTM or TF-IDF for text classification, we integrated and fine-tuned a **DistilBERT** Transformer via Keras Hub, achieving a massive `0.9859` Macro AUC on Jigsaw.
+- **XGBoost Benchmarking**: Alongside the Deep Learning model for the outcome predictor, we trained an XGBoost classifier offline to establish a rigorous baseline for tabular feature importance.
+- **Model Caching & GPU-ready Scripts**: Built `@st.cache_resource` directly into the dashboard so a nearly 500MB Transformer model instantly loads on start. Wrote dedicated Google Colab and Kaggle GPU training scripts for massive speedups out-of-the-box.
+- **Live "Tactical Feedback" Engine**: Our dashboard doesn't just display raw model outputs—it processes the probabilities through a custom feedback engine (e.g. recommending to "stay in cover" if Early Elim probability > 60%, or issuing a severity warning if `threat` > 0.5).
+
+---
+
 ## 🛠️ Project Structure
 
 ```
