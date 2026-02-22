@@ -1,0 +1,18 @@
+venv/
+.env
+__pycache__/
+*.pyc
+*.pyo
+
+# Avoid committing huge model files (Github limit is 100MB without LFS)
+saved_models/*.keras
+saved_models/*.joblib
+saved_models/*.h5
+
+# Avoid committing huge datasets
+data/raw/
+data/processed/*.npy
+data/processed/*.csv
+pubg-finish-placement-prediction/
+
+archive/

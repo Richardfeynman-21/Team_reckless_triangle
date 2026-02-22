@@ -1,0 +1,83 @@
+# 🎯 PUBG AI Intelligence Dashboard
+
+An end-to-end AI system built with **TensorFlow** and **DistilBERT** that combines gameplay outcome prediction and real-time toxicity detection into a unified Streamlit dashboard.
+
+![PUBG Intelligence Dashboard Overview](./assets/dashboard_overview.png)
+
+## ✨ Features
+
+- **⚔️ Match Outcome Predictor**: A deep neural network (and XGBoost baseline) trained on 4.4M PUBG matches from Kaggle. Predicts whether a player is likely to face Early Elimination, finish in the Top-10, or achieve a Victory based on their live match stats (kills, distance, damage, etc.).
+- **💬 Toxicity Detector**: A DistilBERT Transformer model fine-tuned on the 160K Jigsaw Toxic Comment dataset. Performs real-time multi-label classification to flag `toxic`, `severe_toxic`, `obscene`, `threat`, `insult`, and `identity_hate` messages in chat.
+- **🔗 Unified Intelligence Pipeline**: Combines both ML models to generate real-time tactical feedback and safety warnings for users. 
+- **📊 Premium Streamlit Dashboard**: A beautiful, interactive light-mode UI to run analyses on player stats, moderate chat bulks, and view machine learning performance metrics.
+
+---
+
+## 📈 Model Performance
+
+### Toxicity Detector (DistilBERT)
+- **Macro AUC**: 0.9859
+- **Macro F1**: 0.4281
+
+### Outcome Predictor (Tabular DNN)
+- **Macro AUC**: 0.7615
+- **Macro F1**: 0.5842
+
+![Model Performance Metrics](./assets/dashboard_metrics.png)
+
+---
+
+## 🛠️ Project Structure
+
+```
+pubg_ai/
+├── dashboard/
+│   └── app.py                  # Streamlit frontend
+├── data/
+│   ├── preprocess_gameplay.py  # Cleans, imputes, and engineers PUBG features
+│   └── preprocess_text.py      # Cleans Jigsaw text data
+├── metrics/                    # JSON evaluation metrics
+├── models/
+│   ├── outcome_predictor.py    # TF Dense network + XGBoost training script
+│   └── toxicity_detector.py    # DistilBERT training script
+├── notebooks/                  # GPU / Kaggle / Colab training scripts
+├── pipeline/
+│   └── unified_pipeline.py     # Inference pipeline combining both models
+├── saved_models/               # Serialized .keras model files
+├── assets/                     # UI Screenshots
+├── requirements.txt            # Python dependencies
+└── README.md
+```
+
+## 🚀 Setup & Installation
+
+### 1. Requirements
+- Python 3.11+
+- TensorFlow 2.16+
+- Transformers, Keras Hub, XGBoost, Streamlit
+
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Run the Dashboard
+```bash
+# Ensure you are at the project root
+streamlit run dashboard/app.py
+```
+> **Note:** The DistilBERT model (473MB) will be loaded into cache on the dashboard's first start. This takes ~30 seconds, but subsequent inferences and dashboard sessions are instant.
+
+## 🏗️ Model Training
+
+The models are computationally heavy to train. For complete replication:
+1. Download the [PUBG Finish Placement Prediction](https://www.kaggle.com/c/pubg-finish-placement-prediction) data and [Jigsaw Toxic Comment](https://www.kaggle.com/datasets/julian3833/jigsaw-toxic-comment-classification-challenge) data.
+2. Run standard local data preprocessing: `python data/preprocess_gameplay.py`.
+3. To train the models on a GPU, use `notebooks/kaggle_train_outcome.py` and `notebooks/colab_train_toxicity.py` in Google Colab or Kaggle.
+4. Download the generated `.keras` files into `saved_models/`.
+
+## ⚖️ Ethics & Responsible AI
+Please refer to `ethics.md` for considerations regarding toxicity false positives, dataset representation bias, and moderation interventions.
+
+---
+**Built with TensorFlow & Streamlit** ✌️

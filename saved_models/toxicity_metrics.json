@@ -1,0 +1,21 @@
+{
+  "macro_auc": 0.9859,
+  "macro_f1": 0.4281,
+  "per_label_auc": {
+    "toxic": 0.9766,
+    "severe_toxic": 0.9907,
+    "obscene": 0.9897,
+    "threat": 0.9798,
+    "insult": 0.9843,
+    "identity_hate": 0.994
+  },
+  "per_label_f1": {
+    "toxic": 0.6843,
+    "severe_toxic": 0.2804,
+    "obscene": 0.6492,
+    "threat": 0.1207,
+    "insult": 0.5634,
+    "identity_hate": 0.2708
+  },
+  "threshold": 0.5
+}

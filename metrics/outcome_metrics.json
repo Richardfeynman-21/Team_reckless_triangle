@@ -1,0 +1,10 @@
+{
+    "tf_neural_network": {
+        "f1_macro": 0.5842,
+        "auc_macro": 0.7615
+    },
+    "xgboost_baseline": {
+        "f1_macro": 0.5791,
+        "auc_macro": 0.7580
+    }
+}
