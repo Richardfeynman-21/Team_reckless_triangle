@@ -77,7 +77,15 @@ pubg_ai/
 pip install -r requirements.txt
 ```
 
-### 3. Run the Dashboard
+### 3. Download the Saved Models
+Due to GitHub's file size limits, the trained ML models (>500MB) are hosted externally on Google Drive.
+1. Download the models from this [Google Drive Link](#) *(Replace with your actual share link)*
+2. Extract and place the following files inside the `saved_models/` folder:
+   - `toxicity_detector_tf.keras`
+   - `outcome_predictor_tf.keras`
+   - `outcome_xgboost.joblib`
+
+### 4. Run the Dashboard
 ```bash
 # Ensure you are at the project root
 streamlit run dashboard/app.py
