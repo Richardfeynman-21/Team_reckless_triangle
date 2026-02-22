@@ -79,8 +79,9 @@ pip install -r requirements.txt
 
 ### 3. Download the Saved Models
 Due to GitHub's file size limits, the trained ML models (>500MB) are hosted externally on Google Drive.
-1. Download the models from this [Google Drive Link](#) *(Replace with your actual share link)*
-2. Extract and place the following files inside the `saved_models/` folder:
+1. Go to this **[Google Drive Folder](https://drive.google.com/drive/folders/1ZTVQpGZnuRabpjwt8XRQK7RWR2xa0q-2?usp=drive_link)**
+2. Download all the model files from the folder.
+3. Extract (if zipped) and place the following files exactly inside the `saved_models/` directory in this project:
    - `toxicity_detector_tf.keras`
    - `outcome_predictor_tf.keras`
    - `outcome_xgboost.joblib`
