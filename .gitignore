@@ -16,3 +16,6 @@ data/processed/*.csv
 pubg-finish-placement-prediction/
 
 archive/
+
+# Exclude frontend as requested
+frontend/
